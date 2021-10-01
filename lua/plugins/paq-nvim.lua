@@ -42,8 +42,8 @@ require 'paq' {
   'ellisonleao/gruvbox.nvim';
   'simrat39/symbols-outline.nvim';
   'junegunn/fzf';
-  -- 'junegunn/fzf.vim';  -- to enable preview (optional)
-  -- 'ojroques/nvim-lspfuzzy';
+  'junegunn/fzf.vim';  -- to enable preview (optional)
+  'ojroques/nvim-lspfuzzy';
   'akinsho/toggleterm.nvim';
   'folke/tokyonight.nvim';
   'RRethy/vim-illuminate';
@@ -67,6 +67,9 @@ require'lspinstall'.post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+
+-- ================ Tree
+require'nvim-tree'.setup()
 
 -- ================ BUFFERLINE
 vim.opt.termguicolors = true
@@ -209,24 +212,28 @@ vim.cmd([[colorscheme monokai]])
 -- vim.cmd[[colorscheme tokyonight]]
 
 -- ================ LSPFUZZY
--- require('lspfuzzy').setup {
---    methods = 'all',         -- either 'all' or a list of LSP methods (see below)
---   jump_one = true,         -- jump immediately if there is only one location
---   callback = nil,          -- callback called after jumping to a location
---   fzf_preview = {          -- arguments to the FZF '--preview-window' option
---     'right:+{2}-/2'          -- preview on the right and centered on entry
---   },
---   fzf_action = {           -- FZF actions
---     ['ctrl-t'] = 'tabedit',  -- go to location in a new tab
---     ['ctrl-v'] = 'vsplit',   -- go to location in a vertical split
---     ['ctrl-x'] = 'split',    -- go to location in a horizontal split
---   },
---   fzf_modifier = ':~:.',   -- format FZF entries, see |filename-modifiers|
---   fzf_trim = true,         -- trim FZF entries
--- }
+require('lspfuzzy').setup {
+   methods = 'all',         -- either 'all' or a list of LSP methods (see below)
+  jump_one = true,         -- jump immediately if there is only one location
+  callback = nil,          -- callback called after jumping to a location
+  fzf_preview = {          -- arguments to the FZF '--preview-window' option
+    'right:+{2}-/2'          -- preview on the right and centered on entry
+  },
+  fzf_action = {           -- FZF actions
+    ['ctrl-t'] = 'tabedit',  -- go to location in a new tab
+    ['ctrl-v'] = 'vsplit',   -- go to location in a vertical split
+    ['ctrl-x'] = 'split',    -- go to location in a horizontal split
+  },
+  fzf_modifier = ':~:.',   -- format FZF entries, see |filename-modifiers|
+  fzf_trim = true,         -- trim FZF entries
+}
 
 -- ================ FZF LUA
 local actions = require "fzf-lua.actions"
+vim.api.nvim_set_keymap('n', '<c-P>',
+    "<cmd>lua require('fzf-lua').files()<CR>",
+    { noremap = true, silent = true })
+
 require'fzf-lua'.setup {
   winopts = {
     -- split         = "belowright new",-- open in a split instead?
@@ -289,15 +296,15 @@ require'fzf-lua'.setup {
   preview_horizontal  = 'right:60%',    -- right|left:size
   preview_layout      = 'flex',         -- horizontal|vertical|flex
   flip_columns        = 120,            -- #cols to switch to horizontal on flex
-  -- default_previewer   = "bat",       -- override the default previewer?
+  default_previewer   = "bat",       -- override the default previewer?
                                         -- by default uses the builtin previewer
   previewers = {
     cat = {
-      cmd             = "cat",
+      cmd             = "batcat",
       args            = "--number",
     },
     bat = {
-      cmd             = "bat",
+      cmd             = "batcat",
       args            = "--style=numbers,changes --color always",
       theme           = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
       config          = nil,            -- nil uses $BAT_CONFIG_PATH
@@ -323,9 +330,9 @@ require'fzf-lua'.setup {
       hl_cursorline   = 'CursorLine', -- cursor line highlight
       hl_range        = 'IncSearch',  -- ranger highlight (not yet in use)
       keymap = {
-        toggle_full   = '<F2>',       -- toggle full screen
-        toggle_wrap   = '<F3>',       -- toggle line wrap
-        toggle_hide   = '<F4>',       -- toggle on/off (not yet in use)
+        toggle_full   = '<F4>',       -- toggle full screen
+        toggle_wrap   = '<F5>',       -- toggle line wrap
+        toggle_hide   = '<F6>',       -- toggle on/off (not yet in use)
         page_up       = '<S-up>',     -- preview scroll up
         page_down     = '<S-down>',   -- preview scroll down
         page_reset    = '<S-left>',      -- reset scroll to orig pos
