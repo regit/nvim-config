@@ -262,10 +262,11 @@ require'fzf-lua'.setup {
     ['--height']      = '100%',
     ['--layout']      = 'reverse',
   },
-  fzf_binds           = {               -- fzf '--bind=' options
+  keymap = {
+    builtin           = {               -- fzf '--bind=' options
     ["f4"]            = "toggle-preview",
     ["f5"]            = "toggle-preview-wrap",
-    ["shift-down"]    = "preview-page-down",
+    ["ft-down"]    = "preview-page-down",
     ["shift-up"]      = "preview-page-up",
     ["ctrl-u"]        = "unix-line-discard",
     ["ctrl-f"]        = "half-page-down",
@@ -274,6 +275,15 @@ require'fzf-lua'.setup {
     ["ctrl-e"]        = "end-of-line",
     ["alt-a"]         = "toggle-all",
   },
+  builtin = {
+    toggle_full   = '<F4>',       -- toggle full screen
+    toggle_wrap   = '<F5>',       -- toggle line wrap
+    toggle_hide   = '<F6>',       -- toggle on/off (not yet in use)
+    page_up       = '<S-up>',     -- preview scroll up
+    page_down     = '<S-down>',   -- preview scroll down
+    page_reset    = '<S-left>',      -- reset scroll to orig pos
+  },
+},
   --[[ fzf_colors = {                   -- fzf '--color=' options
       ["fg"] = { "fg", "CursorLine" },
       ["bg"] = { "bg", "Normal" },
@@ -321,7 +331,6 @@ require'fzf-lua'.setup {
       title           = true,         -- preview title?
       scrollbar       = true,         -- scrollbar?
       scrollchar      = '█',          -- scrollbar character
-      wrap            = false,        -- wrap lines?
       syntax          = true,         -- preview syntax highlight?
       syntax_limit_l  = 0,            -- syntax limit (lines), 0=nolimit
       syntax_limit_b  = 1024*1024,    -- syntax limit (bytes), 0=nolimit
@@ -329,14 +338,6 @@ require'fzf-lua'.setup {
       hl_cursor       = 'Cursor',     -- cursor highlight
       hl_cursorline   = 'CursorLine', -- cursor line highlight
       hl_range        = 'IncSearch',  -- ranger highlight (not yet in use)
-      keymap = {
-        toggle_full   = '<F4>',       -- toggle full screen
-        toggle_wrap   = '<F5>',       -- toggle line wrap
-        toggle_hide   = '<F6>',       -- toggle on/off (not yet in use)
-        page_up       = '<S-up>',     -- preview scroll up
-        page_down     = '<S-down>',   -- preview scroll down
-        page_reset    = '<S-left>',      -- reset scroll to orig pos
-      },
     },
   },
   -- provider setup

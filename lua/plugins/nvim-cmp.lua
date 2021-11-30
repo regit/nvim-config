@@ -55,7 +55,7 @@ cmp.setup {
     { name = 'path' },
     {
       name = 'buffer',
-      opts = {
+      option = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
         end

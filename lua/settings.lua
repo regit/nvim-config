@@ -33,7 +33,7 @@ opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 
 -- remove whitespace on save
-cmd[[au BufWritePre * :%s/\s\+$//e]]
+-- cmd[[au BufWritePre * :%s/\s\+$//e]]
 
 -- highlight on yank
 exec([[
