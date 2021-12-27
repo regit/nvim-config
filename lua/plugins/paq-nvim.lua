@@ -12,7 +12,7 @@
 --
 
 vim.cmd 'packadd paq-nvim'            -- load paq
-local paq = require('paq-nvim').paq   -- import module with `paq` function
+--local paq = require('paq-nvim').paq   -- import module with `paq` function
 
 -- Add packages
 -- for package info see: init.lua (Lua modules)
