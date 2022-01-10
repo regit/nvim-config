@@ -103,7 +103,7 @@ if not configs.suricata_language_server then
   configs.suricata_language_server = {
     default_config = {
       cmd = {'suricata-language-server'};
-      filetypes = {'suricata'};
+      filetypes = {'suricata', 'hog'};
       root_dir = function(fname)
         return lspconfig.util.find_git_ancestor(fname)
       end;
