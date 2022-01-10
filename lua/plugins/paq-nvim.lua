@@ -50,6 +50,7 @@ require 'paq' {
   'ibhagwan/fzf-lua';
   'vijaymarupudi/nvim-fzf';
   'sindrets/diffview.nvim';
+  'folke/trouble.nvim';
 }
 
 
@@ -719,3 +720,7 @@ end
 
 vim.api.nvim_set_keymap("n", "<leader>é", "<cmd>lua _sync_ssp2()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>&", "<cmd>lua _sync_ssp()<CR>", {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)
