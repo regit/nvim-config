@@ -587,13 +587,15 @@ require'diffview'.setup {
     fold_open = "",
   },
   file_panel = {
-    position = "left",            -- One of 'left', 'right', 'top', 'bottom'
-    width = 35,                   -- Only applies when position is 'left' or 'right'
-    height = 10,                  -- Only applies when position is 'top' or 'bottom'
-    listing_style = "tree",       -- One of 'list' or 'tree'
-    tree_options = {              -- Only applies when listing_style is 'tree'
+    win_config = {
+      position = "left",            -- One of 'left', 'right', 'top', 'bottom'
+      width = 35,                   -- Only applies when position is 'left' or 'right'
+      height = 10,                  -- Only applies when position is 'top' or 'bottom'
+      listing_style = "tree",       -- One of 'list' or 'tree'
+      tree_options = {              -- Only applies when listing_style is 'tree'
       flatten_dirs = true,
       folder_statuses = "always"  -- One of 'never', 'only_folded' or 'always'.
+      }
     }
   },
   file_history_panel = {
