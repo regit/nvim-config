@@ -35,7 +35,7 @@ require 'paq' {
   'windwp/nvim-autopairs';
   'tanvirtin/monokai.nvim';
   'williamboman/nvim-lsp-installer';
-  'akinsho/bufferline.nvim';
+  {'akinsho/bufferline.nvim', branch='main'};
   'nvim-lua/plenary.nvim';
   'lewis6991/gitsigns.nvim';
   'rktjmp/lush.nvim';
@@ -44,7 +44,6 @@ require 'paq' {
   'junegunn/fzf';
   'junegunn/fzf.vim';  -- to enable preview (optional)
   'ojroques/nvim-lspfuzzy';
-  'akinsho/toggleterm.nvim';
   'folke/tokyonight.nvim';
   'RRethy/vim-illuminate';
   'ibhagwan/fzf-lua';
@@ -111,7 +110,10 @@ options = {
   left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
   middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
   -- separator_style = {'', ''}
-  indicator_icon = '▎',
+  indicator = {
+      icon = '▎', -- this should be omitted if indicator style is not 'icon'
+      style = 'icon',
+  },
   buffer_close_icon = '',
   modified_icon = '●',
   close_icon = '',
@@ -193,7 +195,7 @@ require('gitsigns').setup {
     follow_files = true
   },
   attach_to_untracked = true,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
   current_line_blame_opts = {
     virt_text = true,
     virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
@@ -530,46 +532,6 @@ require'fzf-lua'.setup {
   },
 }
 
--- ================ ToggeTerm
-require("toggleterm").setup{
-  -- size can be a number or function which is passed the current terminal
-  size = function(term)
-    if term.direction == "horizontal" then
-      return 20
-    elseif term.direction == "vertical" then
-      return vim.o.columns * 0.4
-    end
-  end,
-  open_mapping = [[<c-\>]],
-  hide_numbers = true, -- hide the number column in toggleterm buffers
-  shade_filetypes = {},
-  shade_terminals = true,
-  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-  start_in_insert = true,
-  insert_mappings = true, -- whether or not the open mapping applies in insert mode
-  persist_size = true,
-  -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
-  direction = 'horizontal',
-  close_on_exit = true, -- close the terminal window when the process exits
-  shell = vim.o.shell, -- change the default shell
-  -- This field is only relevant if direction is set to 'float'
-  float_opts = {
-    -- The border key is *almost* the same as 'nvim_open_win'
-    -- see :h nvim_open_win for details on borders however
-    -- the 'curved' border is a custom border type
-    -- not natively supported but implemented in this plugin.
-    -- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    border = 'single',
-    -- width = <value>,
-    height = 200,
-    winblend = 3,
-    highlights = {
-      border = "Normal",
-      background = "Normal",
-    }
-  },
-}
-
 -- ================ DIFFVIEW
 -- https://github.com/sindrets/diffview.nvim
 local cb = require'diffview.config'.diffview_callback
@@ -686,55 +648,6 @@ require'diffview'.setup {
     },
   },
 }
-
--- ================ TERM
-local Terminal  = require('toggleterm.terminal').Terminal
-local sync_ssp2 = Terminal:new({
-  cmd = "./tests/sync.sh snuser@myssp2 -s -o",
-  dir = "~/git/scirius",
-  direction = "horizontal",
-  float_opts = {
-    border = "double",
-  },
-  -- function to run on opening the terminal
-  on_open = function(term)
-    vim.cmd("startinsert!")
-    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-  end,
-  -- function to run on closing the terminal
-  on_close = function(term)
-    vim.cmd("Closing terminal")
-  end,
-})
-
-local sync_ssp = Terminal:new({
-  cmd = "./tests/sync.sh snuser@myssp -s -o",
-  dir = "~/git/scirius",
-  direction = "horizontal",
-  float_opts = {
-    border = "double",
-  },
-  -- function to run on opening the terminal
-  on_open = function(term)
-    vim.cmd("startinsert!")
-    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-  end,
-  -- function to run on closing the terminal
-  on_close = function(term)
-    vim.cmd("Closing terminal")
-  end,
-})
-
-function _sync_ssp()
-  sync_ssp:toggle()
-end
-
-function _sync_ssp2()
-  sync_ssp2:toggle()
-end
-
-vim.api.nvim_set_keymap("n", "<leader>é", "<cmd>lua _sync_ssp2()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>&", "<cmd>lua _sync_ssp()<CR>", {noremap = true, silent = true})
 
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
   {silent = true, noremap = true}
