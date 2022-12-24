@@ -104,3 +104,5 @@ cmd[[autocmd FileType markdown let g:indentLine_enabled=0]]
 opt.completeopt = 'menuone,noselect,noinsert' -- completion options
 --opt.shortmess = 'c' 	-- don't show completion messages
 
+
+vim.cmd([[colorscheme monokai]])
