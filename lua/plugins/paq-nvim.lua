@@ -34,7 +34,7 @@ require 'paq' {
   'L3MON4D3/LuaSnip';
   'windwp/nvim-autopairs';
   'tanvirtin/monokai.nvim';
-  'williamboman/nvim-lsp-installer';
+  {'williamboman/mason.nvim', branch='main'};
   {'akinsho/bufferline.nvim', branch='main'};
   'nvim-lua/plenary.nvim';
   'lewis6991/gitsigns.nvim';
@@ -52,39 +52,7 @@ require 'paq' {
   'folke/trouble.nvim';
 }
 
-
-local lsp_installer = require("nvim-lsp-installer")
-
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
-end)
-
--- local function setup_servers()
---   require'lspinstall'.setup()
---   local servers = require'lspinstall'.installed_servers()
---   for _, server in pairs(servers) do
---     require'lspconfig'[server].setup{}
---   end
--- end
---  
--- setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
--- require'lspinstall'.post_install_hook = function ()
---  setup_servers() -- reload installed servers
---  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
--- end
+require("mason").setup()
 
 -- ================ Tree
 require'nvim-tree'.setup()
@@ -567,23 +535,24 @@ require'diffview'.setup {
     height = 16
     },
     log_options = {
-      single_file = {
-        max_count = 256,      -- Limit the number of commits
-        follow = false,       -- Follow renames (only for single file)
-        all = false,          -- Include all refs under 'refs/' including HEAD
-        merges = false,       -- List only merge commits
-        no_merges = false,    -- List no merge commits
-        reverse = false,
-      },
-      multi_file = {
-        max_count = 128,      -- Limit the number of commits
-        follow = false,       -- Follow renames (only for single file)
-        all = false,          -- Include all refs under 'refs/' including HEAD
-        merges = false,       -- List only merge commits
-        no_merges = false,    -- List no merge commits
-        reverse = false,
-      }-- List commits in reverse order
-
+      git = {
+        single_file = {
+          max_count = 256,      -- Limit the number of commits
+          follow = false,       -- Follow renames (only for single file)
+          all = false,          -- Include all refs under 'refs/' including HEAD
+          merges = false,       -- List only merge commits
+          no_merges = false,    -- List no merge commits
+          reverse = false,
+        },
+        multi_file = {
+          max_count = 128,      -- Limit the number of commits
+          follow = false,       -- Follow renames (only for single file)
+          all = false,          -- Include all refs under 'refs/' including HEAD
+          merges = false,       -- List only merge commits
+          no_merges = false,    -- List no merge commits
+          reverse = false,
+        }-- List commits in reverse order
+      }
     },
   },
   key_bindings = {
