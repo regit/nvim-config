@@ -24,9 +24,9 @@ require('plugins/packer')         -- plugin manager
 require('plugins/nvim-tree')	      -- file manager
 require('plugins/lualine')          -- statusline
 require('plugins/nvim-cmp')         -- autocomplete
-require('plugins/nvim-lspconfig')   -- LSP settings
+-- require('plugins/nvim-lspconfig')   -- LSP settings
 require('plugins/vista')            -- tag viewer
-require('plugins/nvim-treesitter')  -- tree-sitter interface
+-- require('plugins/nvim-treesitter')  -- tree-sitter interface
 require('plugins/nvim-autopairs')   -- autopairs
 require('plugins/mason')            -- mason configuration
 

@@ -9,11 +9,11 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
   use 'Yggdroot/indentLine'
   use 'liuchengxu/vista.vim'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'neovim/nvim-lspconfig'
+  --use 'nvim-treesitter/nvim-treesitter'
   use {
     'williamboman/mason.nvim',
-    branch='main'
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig'
   }
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
