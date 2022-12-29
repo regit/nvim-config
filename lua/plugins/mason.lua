@@ -28,6 +28,9 @@ local on_attach = function(client, bufnr)
 end
 
 require("lspconfig").sumneko_lua.setup{}
+require("lspconfig").pyright.setup{}
+require("lspconfig").clangd.setup{}
+require("lspconfig").rust_analyzer.setup{}
 
 local lspconfig = require 'lspconfig'
 local configs = require 'lspconfig.configs'
@@ -46,7 +49,7 @@ if not configs.suricata_language_server then
   }
 end
 
-local suricata_ls_cmd = {'suricata-language-server', '--suricata-binary=/home/eric/builds/suricata/bin/suricata'}
+local suricata_ls_cmd = {'suricata-language-server', '--suricata-binary=/home/eric/builds/suricata/bin/suricata',  '--suricata-config=/home/eric/builds/suricata/etc/suricata/suricata-sls.yaml'}
 require('lspconfig').suricata_language_server.setup {
   cmd = suricata_ls_cmd,
   on_attach = on_attach,

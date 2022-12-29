@@ -41,6 +41,19 @@ return require('packer').startup(function(use)
   use 'vijaymarupudi/nvim-fzf'
   use 'sindrets/diffview.nvim'
   use 'folke/trouble.nvim'
-  
-end) 
 
+  use 'nvim-tree/nvim-web-devicons'
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+
+  use {
+      'johnfrankmorgan/whitespace.nvim',
+      config = function ()
+          require('whitespace-nvim').setup({
+              highlight = 'DiffDelete',
+              ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help' },
+          })
+          -- remove trailing whitespace with a keybinding
+          vim.keymap.set('n', '<Leader>t', require('whitespace-nvim').trim)
+      end
+  }
+end)
