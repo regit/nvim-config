@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "rust_analyzer", "clangd", "pyright"}
+  ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright"}
 })
 
 local on_attach = function(client, bufnr)
@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-require("lspconfig").sumneko_lua.setup{}
+require("lspconfig").lua_ls.setup{}
 require("lspconfig").pyright.setup{}
 require("lspconfig").clangd.setup{}
 require("lspconfig").rust_analyzer.setup{}
