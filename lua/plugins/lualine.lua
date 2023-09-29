@@ -7,7 +7,7 @@
 
 require('lualine').setup {
   options = {
-    theme = 'gruvbox',
+    theme = 'material',
     icons_enabled = true,
     extensions = {'nvim-tree'},
   };

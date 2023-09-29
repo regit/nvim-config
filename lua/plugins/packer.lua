@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
   use 'Yggdroot/indentLine'
   use 'liuchengxu/vista.vim'
-  --use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-treesitter'
   use {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -21,7 +21,9 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
   use 'windwp/nvim-autopairs'
-  use 'tanvirtin/monokai.nvim'
+  -- Color theme
+  -- use 'tanvirtin/monokai.nvim'
+  use 'marko-cerovac/material.nvim'
   use {
     'akinsho/bufferline.nvim',
     branch='main'
@@ -31,13 +33,18 @@ return require('packer').startup(function(use)
   use 'rktjmp/lush.nvim'
   use 'ellisonleao/gruvbox.nvim'
   use 'simrat39/symbols-outline.nvim'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
+  -- use 'junegunn/fzf'
+  -- use 'junegunn/fzf.vim'
   use 'ojroques/nvim-lspfuzzy'
   use 'folke/tokyonight.nvim'
   use 'RRethy/vim-illuminate'
-  use 'ibhagwan/fzf-lua'
-  use 'vijaymarupudi/nvim-fzf'
+  -- use 'ibhagwan/fzf-lua'
+ --  use 'vijaymarupudi/nvim-fzf'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.3',
+  -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use 'sindrets/diffview.nvim'
   use 'folke/trouble.nvim'
 
