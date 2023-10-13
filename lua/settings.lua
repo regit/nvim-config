@@ -104,6 +104,9 @@ cmd[[autocmd FileType markdown let g:indentLine_enabled=0]]
 opt.completeopt = 'menuone,noselect,noinsert' -- completion options
 --opt.shortmess = 'c' 	-- don't show completion messages
 
+-- display cursor lines
+opt.cursorline = true
+opt.cursorcolumn = true
 
 vim.g.material_style = "deep ocean"
 vim.cmd([[colorscheme material]])
@@ -159,6 +162,15 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+require('telescope').setup({
+  extensions = {
+    advanced_git_search = {
+      -- Insert Config here
+    }
+  }
+})
+
+require("telescope").load_extension("advanced_git_search")
 
 require('material').setup({
 
