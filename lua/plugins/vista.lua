@@ -14,6 +14,8 @@ local cmd = vim.cmd
 --- Note: this option only works for the kind renderer, not the tree renderer
 g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
 
+g.vista_echo_cursor_strategy = 'floating_win'
+
 -- Executive used when opening vista sidebar without specifying it.
 --- See all the avaliable executives via `:echo g:vista#executives`.
 -- g.vista_default_executive = 'nvim_lsp'
