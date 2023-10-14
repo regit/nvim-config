@@ -61,8 +61,8 @@ map('', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 map('', '<leader>f', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista
-map('', '<C-m>', ':Vista<CR>', default_opts)  -- open/close vista window
-map('', '<C-J>', ':Vista focus<CR>', default_opts)  -- open/close + focus vista window
+-- map('', '<C-J>', ':SymbolsOutline<CR>', default_opts)  -- open/close vista window
+-- map('', '<C-J>', ':SymbolsOutline focus<CR>', default_opts)  -- open/close + focus vista window
 
 map('', '<m-m>', ':BookmarkToggle<CR>', default_opts)
 map('', '<m-n>', ':BookmarkNext<CR>', default_opts)

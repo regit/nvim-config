@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   use 'hoob3rt/lualine.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'Yggdroot/indentLine'
-  use 'liuchengxu/vista.vim'
+  -- use 'liuchengxu/vista.vim'
   use 'nvim-treesitter/nvim-treesitter'
   use {
     'williamboman/mason.nvim',
@@ -18,8 +18,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-buffer'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip'
   use 'windwp/nvim-autopairs'
   -- Color theme
   -- use 'tanvirtin/monokai.nvim'
@@ -63,4 +61,5 @@ return require('packer').startup(function(use)
           vim.keymap.set('n', '<Leader>t', require('whitespace-nvim').trim)
       end
   }
+  use 'FabijanZulj/blame.nvim'
 end)
