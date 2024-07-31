@@ -155,6 +155,7 @@ require('gitsigns').setup{
 }
 
 require'nvim-tree'.setup()
+require'trouble'.setup()
 
 require("telescope").load_extension("advanced_git_search")
 
