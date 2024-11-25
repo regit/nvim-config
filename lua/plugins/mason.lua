@@ -48,9 +48,3 @@ if not configs.suricata_language_server then
     };
   }
 end
-
-local suricata_ls_cmd = {'suricata-language-server', '--suricata-binary=/home/eric/builds/suricata/bin/suricata',  '--suricata-config=/home/eric/builds/suricata/etc/suricata/suricata-sls.yaml', '--debug-log'}
-require('lspconfig').suricata_language_server.setup {
-  cmd = suricata_ls_cmd,
-  on_attach = on_attach,
-}

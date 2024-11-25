@@ -113,7 +113,7 @@ if not configs.suricata_language_server then
   }
 end
 
-local suricata_ls_cmd = {'suricata-language-server', '--suricata-binary=/home/eric/builds/suricata/bin/suricata', '--debug-log'}
+local suricata_ls_cmd = {'suricata-language-server', vim.fn.expand('--suricata-binary=$HOME/builds/suricata/bin/suricata'), '--debug-log'}
 require'lspconfig'.suricata_language_server.setup{
   cmd = suricata_ls_cmd,
   on_attach = on_attach,
