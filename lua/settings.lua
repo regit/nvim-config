@@ -109,7 +109,8 @@ opt.cursorline = true
 opt.cursorcolumn = true
 
 vim.g.material_style = "deep ocean"
-vim.cmd([[colorscheme material]])
+-- vim.cmd([[colorscheme material]])
+vim.cmd([[colorscheme tokyonight-moon]])
 
 require('gitsigns').setup{
   current_line_blame = true;
@@ -174,6 +175,9 @@ require('telescope').setup({
   }
 })
 
+-- init.lua
+local neogit = require('neogit')
+neogit.setup {}
 
 require('material').setup({
 
@@ -240,3 +244,5 @@ require('material').setup({
 })
 
 require("symbols-outline").setup()
+
+require("trouble").setup()

@@ -34,17 +34,18 @@ return require('packer').startup(function(use)
   use 'rktjmp/lush.nvim'
   use 'ellisonleao/gruvbox.nvim'
   use 'simrat39/symbols-outline.nvim'
-  -- use 'junegunn/fzf'
-  -- use 'junegunn/fzf.vim'
-  use 'ojroques/nvim-lspfuzzy'
-  use 'folke/tokyonight.nvim'
   use 'RRethy/vim-illuminate'
   -- use 'ibhagwan/fzf-lua'
  --  use 'vijaymarupudi/nvim-fzf'
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.3',
+    'nvim-telescope/telescope.nvim', -- , tag = '0.1.3'
   -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {
+    'NeogitOrg/neogit',
+    requires = {{ 'nvim-lua/plenary.nvim' }},
+    config = true
   }
   use 'aaronhallaert/advanced-git-search.nvim'
   use 'sindrets/diffview.nvim'
@@ -65,4 +66,5 @@ return require('packer').startup(function(use)
       end
   }
   use 'FabijanZulj/blame.nvim'
+  use 'folke/tokyonight.nvim'
 end)

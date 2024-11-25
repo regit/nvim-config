@@ -85,7 +85,7 @@ https://github.com/typescript-language-server/typescript-language-server
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'bashls', 'pyright', 'clangd', 'html', 'tsserver' }
+local servers = { 'bashls', 'pyright', 'clangd', 'html', 'ts_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -113,8 +113,14 @@ if not configs.suricata_language_server then
   }
 end
 
-local suricata_ls_cmd = {'suricata-language-server', '--suricata-binary=/home/regit/builds/suricata/bin/suricata'}
+local suricata_ls_cmd = {'suricata-language-server', '--suricata-binary=/home/eric/builds/suricata/bin/suricata', '--debug-log'}
 require'lspconfig'.suricata_language_server.setup{
   cmd = suricata_ls_cmd,
+  on_attach = on_attach,
+}
+
+local clangd_cmd = {'clangd', '--header-insertion=never'}
+require'lspconfig'.clangd.setup{
+  cmd = clangd_cmd,
   on_attach = on_attach,
 }
