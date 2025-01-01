@@ -67,4 +67,5 @@ return require('packer').startup(function(use)
   }
   use 'FabijanZulj/blame.nvim'
   use 'folke/tokyonight.nvim'
+  use 'folke/zen-mode.nvim'
 end)

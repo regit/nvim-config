@@ -119,7 +119,7 @@ require'lspconfig'.suricata_language_server.setup{
   on_attach = on_attach,
 }
 
-local clangd_cmd = {'clangd', '--header-insertion=never'}
+local clangd_cmd = {'/home/eric/builds/clang/bin/clangd', '--header-insertion=never'}
 require'lspconfig'.clangd.setup{
   cmd = clangd_cmd,
   on_attach = on_attach,
