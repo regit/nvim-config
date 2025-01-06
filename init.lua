@@ -15,12 +15,13 @@ Website: https://github.com/brainfucksec/neovim-lua
 
 --]]
 
+vim.g.mapleader = ','             -- change leader to a comma
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
 -- require('plugins/packer')         -- plugin manager
-require('settings')                 -- settings
 require("config.lazy")
+require('settings')                 -- settings
 require('keymaps')                  -- keymaps
 require('plugins/nvim-tree')	      -- file manager
 require('plugins/lualine')          -- statusline
