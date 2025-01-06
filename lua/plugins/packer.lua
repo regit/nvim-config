@@ -4,7 +4,10 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use 'hoob3rt/lualine.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons'}
+  }
   use 'nvim-tree/nvim-tree.lua'
   use 'Yggdroot/indentLine'
   -- use 'liuchengxu/vista.vim'

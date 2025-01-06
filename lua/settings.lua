@@ -209,7 +209,7 @@ require('material').setup({
         -- "indent-blankline",
         -- "lspsaga",
         -- "mini",
-        -- "neogit",
+       "neogit",
         -- "neorg",
         -- "nvim-cmp",
         -- "nvim-navic",
