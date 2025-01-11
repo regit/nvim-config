@@ -27,7 +27,7 @@ return {
   { 'nvim-lua/plenary.nvim' },
   { 'lewis6991/gitsigns.nvim' },
   { 'rktjmp/lush.nvim' },
-  { 'ellisonleao/gruvbox.nvim' }, 
+  { 'ellisonleao/gruvbox.nvim' },
   { 'simrat39/symbols-outline.nvim' },
   { 'RRethy/vim-illuminate' },
   {
