@@ -57,5 +57,6 @@ return {
   },
   { 'FabijanZulj/blame.nvim' },
   -- { 'folke/tokyonight.nvim' },
-  { 'folke/zen-mode.nvim' }
+  { 'folke/zen-mode.nvim' },
+  { 'github/copilot.vim' }
 }
