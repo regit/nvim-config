@@ -133,9 +133,9 @@ require('lspconfig').jsonls.setup {
         extra = {
           {
             description = 'Suricata JSON schema',
-            fileMatch = 'eve.json',
-            name = 'suricata EVE',
-            url = 'file:///home/eric/git/suricata/etc/schema.json'
+            fileMatch = '*eve.json',
+            name = 'suricata.json',
+            url = '/home/eric/git/suricata/etc/schema.json',
           }
         }
       }),
