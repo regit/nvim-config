@@ -247,3 +247,5 @@ require('material').setup({
 require("symbols-outline").setup()
 
 require("trouble").setup()
+
+require("todo-comments").setup()

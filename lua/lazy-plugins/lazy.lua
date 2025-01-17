@@ -59,5 +59,8 @@ return {
   { 'FabijanZulj/blame.nvim' },
   { 'folke/tokyonight.nvim' },
   { 'folke/zen-mode.nvim' },
+  { 'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
   { 'github/copilot.vim' }
 }
