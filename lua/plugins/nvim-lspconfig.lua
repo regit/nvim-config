@@ -85,7 +85,7 @@ https://github.com/typescript-language-server/typescript-language-server
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'bashls', 'pyright', 'clangd', 'html', 'ts_ls' }
+local servers = { 'bashls', 'pyright', 'html', 'ts_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -133,7 +133,7 @@ require('lspconfig').jsonls.setup {
         extra = {
           {
             description = 'Suricata JSON schema',
-            fileMatch = '*eve.json',
+            fileMatch = '*eve-single.json',
             name = 'suricata.json',
             url = '/home/eric/git/suricata/etc/schema.json',
           }
