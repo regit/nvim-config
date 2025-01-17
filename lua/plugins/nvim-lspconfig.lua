@@ -124,3 +124,37 @@ require'lspconfig'.clangd.setup{
   cmd = clangd_cmd,
   on_attach = on_attach,
 }
+
+require('lspconfig').jsonls.setup {
+  debug = true,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas({
+        extra = {
+          {
+            description = 'Suricata JSON schema',
+            fileMatch = 'eve.json',
+            name = 'suricata EVE',
+            url = 'file:///home/eric/git/suricata/etc/schema.json'
+          }
+        }
+      }),
+      validate = { enable = true },
+    },
+  },
+}
+
+require('lspconfig').yamlls.setup {
+  settings = {
+    yaml = {
+      schemaStore = {
+        -- You must disable built-in schemaStore support if you want to use
+        -- this plugin and its advanced options like `ignore`.
+        enable = false,
+        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+        url = "",
+      },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
+}

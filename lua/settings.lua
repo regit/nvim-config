@@ -15,7 +15,7 @@ local opt = vim.opt         		-- global/buffer/windows-scoped options
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ','             -- change leader to a comma
+-- g.mapleader = ','             -- change leader to a comma
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
@@ -110,8 +110,8 @@ opt.cursorcolumn = true
 
 vim.g.material_style = "deep ocean"
 -- vim.g.material_style = "oceanic"
-vim.cmd([[colorscheme material]])
--- vim.cmd([[colorscheme tokyonight-moon]])
+-- vim.cmd([[colorscheme material]])
+vim.cmd([[colorscheme tokyonight-moon]])
 
 require('gitsigns').setup{
   current_line_blame = true;

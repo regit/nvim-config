@@ -10,11 +10,11 @@ return {
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'neovim/nvim-lspconfig' },
-  -- { 'hrsh7th/nvim-cmp' },
-  -- { 'hrsh7th/cmp-nvim-lsp' },
-  -- { 'hrsh7th/cmp-path' },
-  -- { 'L3MON4D3/LuaSnip' },
-  -- { 'saadparwaiz1/cmp_luasnip' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-path' },
+  { 'L3MON4D3/LuaSnip' },
+  { 'saadparwaiz1/cmp_luasnip' },
 
   { 'windwp/nvim-autopairs' },
   -- Color theme
@@ -55,8 +55,9 @@ return {
           vim.keymap.set('n', '<Leader>t', require('whitespace-nvim').trim)
       end
   },
+  { 'b0o/schemastore.nvim' },
   { 'FabijanZulj/blame.nvim' },
-  -- { 'folke/tokyonight.nvim' },
+  { 'folke/tokyonight.nvim' },
   { 'folke/zen-mode.nvim' },
   { 'github/copilot.vim' }
 }
