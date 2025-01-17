@@ -15,7 +15,6 @@ Website: https://github.com/brainfucksec/neovim-lua
 
 --]]
 
-vim.g.mapleader = ','             -- change leader to a comma
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
