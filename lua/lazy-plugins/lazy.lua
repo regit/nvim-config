@@ -38,7 +38,7 @@ return {
   {
     'NeogitOrg/neogit',
     requires = {{ 'nvim-lua/plenary.nvim' }},
-    config = true
+    dependencies = { 'nvim-telescope/telescope.nvim' }
   },
   { 'aaronhallaert/advanced-git-search.nvim' },
   { 'sindrets/diffview.nvim' },

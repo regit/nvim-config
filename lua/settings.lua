@@ -178,7 +178,64 @@ require('telescope').setup({
 
 -- init.lua
 local neogit = require('neogit')
-neogit.setup {}
+neogit.setup {
+  graph_style = "kitty",
+  integrations = {
+    telescope = true,
+    diffview = true,
+  },
+  sections = {
+    -- Reverting/Cherry Picking
+    sequencer = {
+      folded = false,
+      hidden = false,
+    },
+    untracked = {
+      folded = true,
+      hidden = false,
+    },
+    unstaged = {
+      folded = false,
+      hidden = false,
+    },
+    staged = {
+      folded = false,
+      hidden = false,
+    },
+    stashes = {
+      folded = true,
+      hidden = false,
+    },
+    unpulled_upstream = {
+      folded = true,
+      hidden = false,
+    },
+    unmerged_upstream = {
+      folded = false,
+      hidden = false,
+    },
+    unpulled_pushRemote = {
+      folded = true,
+      hidden = false,
+    },
+    unmerged_pushRemote = {
+      folded = false,
+      hidden = false,
+    },
+    recent = {
+      folded = true,
+      hidden = false,
+    },
+    rebase = {
+      folded = true,
+      hidden = false,
+    },
+  },
+}
+
+vim.keymap.set('n', '<leader>gs', function()
+  require('neogit').open()
+end, {})
 
 require('material').setup({
 
