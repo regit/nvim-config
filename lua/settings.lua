@@ -176,7 +176,6 @@ require('telescope').setup({
   }
 })
 
--- init.lua
 local neogit = require('neogit')
 neogit.setup {
   graph_style = "kitty",
@@ -236,6 +235,14 @@ neogit.setup {
 vim.keymap.set('n', '<leader>gs', function()
   require('neogit').open()
 end, {})
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
 
 require('material').setup({
 
