@@ -76,7 +76,9 @@ return {
       "nvim-lua/plenary.nvim"
     },
     config = function()
-      require("navimark").setup()
+      require("navimark").setup({
+        persist = true,
+      })
     end,
   }
 }
