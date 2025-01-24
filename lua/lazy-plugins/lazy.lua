@@ -5,7 +5,8 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons'}
   },
   { 'nvim-tree/nvim-tree.lua' },
-  { 'Yggdroot/indentLine' },
+  -- { 'Yggdroot/indentLine' },
+  { 'lukas-reineke/indent-blankline.nvim' },
   { 'nvim-treesitter/nvim-treesitter' },
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
