@@ -308,8 +308,26 @@ require('material').setup({
     custom_highlights = {}, -- Overwrite highlights with your own
 })
 
-require("symbols-outline").setup()
+require("outline").setup({
+  preview_window = {
+    auto_preview = true,
+    border = 'rounded',
+  }
+})
 
 require("trouble").setup()
 
 require("todo-comments").setup()
+
+require("barbar").setup({
+  tabpages = true,
+  show_tab_indicators = true,
+  show_close_icon = false,
+  show_buffer_close_icons = false,
+  -- separator_style = "slant",
+  -- mappings = true,
+  icons = {
+    buffer_number = false,
+    buffer_index = true,
+  }
+})

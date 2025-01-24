@@ -28,7 +28,7 @@ return {
   { 'lewis6991/gitsigns.nvim' },
   { 'rktjmp/lush.nvim' },
   { 'ellisonleao/gruvbox.nvim' },
-  { 'simrat39/symbols-outline.nvim' },
+  { 'hedyhli/outline.nvim' },
   { 'RRethy/vim-illuminate' },
   {
     'nvim-telescope/telescope.nvim', -- , tag = '0.1.3'
@@ -62,5 +62,11 @@ return {
   { 'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  { 'github/copilot.vim' }
+  { 'github/copilot.vim' },
+  {
+    'ibhagwan/fzf-lua',
+    -- optional for icon support
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {}
+  }
 }

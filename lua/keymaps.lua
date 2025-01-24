@@ -55,7 +55,7 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -- nvim-tree
 -- all shotcuts https://github.com/kyazdani42/nvim-tree.lua
 map('n', '<F2>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
-map('n', '<F3>', ':SymbolsOutline<CR>', default_opts)       -- open/close
+map('n', '<F3>', ':Outline<CR>', default_opts)       -- open/close
 
 map('', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 map('', '<leader>f', ':NvimTreeFindFile<CR>', default_opts) -- search file
@@ -74,7 +74,7 @@ map('', '<A-b>', ':BufferLineCyclePrev<CR>', default_opts)
 map('', '<A-N>', ':BufferLineMoveNext<CR>', default_opts)
 map('', '<A-B>', ':BufferLineMovePrev<CR>', default_opts)
 
-map('', '<C-F>', ':FZF<CR>', default_opts)
+map('', '<C-F>', ':FzfLua<CR>', default_opts)
 map('', '<ESC>', ':noh<CR>', {noremap = true})
 
 function _G.set_terminal_keymaps()
