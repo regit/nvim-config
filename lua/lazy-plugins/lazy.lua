@@ -19,15 +19,13 @@ return {
   { 'windwp/nvim-autopairs' },
   -- Color theme
   -- use 'tanvirtin/monokai.nvim'
-  { 'marko-cerovac/material.nvim' },
+  -- { 'marko-cerovac/material.nvim' },
   {
     'akinsho/bufferline.nvim',
     branch='main'
   },
   { 'nvim-lua/plenary.nvim' },
   { 'lewis6991/gitsigns.nvim' },
-  { 'rktjmp/lush.nvim' },
-  { 'ellisonleao/gruvbox.nvim' },
   { 'hedyhli/outline.nvim' },
   { 'RRethy/vim-illuminate' },
   {
