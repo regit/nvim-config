@@ -93,3 +93,6 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",
   {silent = true, noremap = true}
 )
+
+
+map('', '<C-B>', ':copen | AsyncRun make -j8<CR>', default_opts)

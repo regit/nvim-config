@@ -67,5 +67,6 @@ return {
     -- optional for icon support
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {}
-  }
+  },
+  { 'skywind3000/asyncrun.vim' }
 }
