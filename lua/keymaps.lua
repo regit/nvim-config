@@ -64,11 +64,6 @@ map('', '<leader>f', ':NvimTreeFindFile<CR>', default_opts) -- search file
 -- map('', '<C-J>', ':SymbolsOutline<CR>', default_opts)  -- open/close vista window
 -- map('', '<C-J>', ':SymbolsOutline focus<CR>', default_opts)  -- open/close + focus vista window
 
-map('', '<m-m>', ':BookmarkToggle<CR>', default_opts)
-map('', '<m-n>', ':BookmarkNext<CR>', default_opts)
-map('', '<m-b>', ':BookmarkPrev<CR>', default_opts)
-map('', '<m-a>', ':BookmarkShowAll<CR>', default_opts)
-
 map('', '<A-n>', ':BufferLineCycleNext<CR>', default_opts)
 map('', '<A-b>', ':BufferLineCyclePrev<CR>', default_opts)
 map('', '<A-N>', ':BufferLineMoveNext<CR>', default_opts)
@@ -94,5 +89,4 @@ vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>"
   {silent = true, noremap = true}
 )
 
-
-map('', '<C-B>', ':copen | AsyncRun make -j8<CR>', default_opts)
+map('', '<C-B>', ':copen | AsyncRun make -j $(nproc)<CR>', default_opts)
