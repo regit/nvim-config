@@ -312,6 +312,11 @@ require("outline").setup({
   preview_window = {
     auto_preview = true,
     border = 'rounded',
+    height = 90,
+  },
+  outline_items = {
+    show_symbol_lineno = true,
+    show_symbol_details = false,
   }
 })
 
