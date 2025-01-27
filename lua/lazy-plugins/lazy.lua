@@ -80,5 +80,9 @@ return {
         persist = true,
       })
     end,
+  },
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
   }
 }
