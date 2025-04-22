@@ -158,3 +158,5 @@ require('lspconfig').yamlls.setup {
     },
   },
 }
+
+require'lspconfig'.nil_ls.setup{}
