@@ -5,7 +5,6 @@
 -- Plugin: nvim-lspconfig
 -- for language server setup see: https://github.com/neovim/nvim-lspconfig
 
-local nvim_lsp = require('lspconfig')
 
 -- Add additional capabilities supported by nvim-cmp
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -85,46 +84,38 @@ https://github.com/typescript-language-server/typescript-language-server
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'bashls', 'pyright', 'html', 'ts_ls', 'taplo' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
+-- local servers = { 'bashls', 'pyright', 'html', 'ts_ls', 'taplo' }
+-- for _, lsp in ipairs(servers) do
+--   vim.lsp.config(lsp).setup {
+--     on_attach = on_attach,
+--     flags = {
+--       debounce_text_changes = 150,
+--     }
+--   }
+-- end
 
-local lspconfig = require 'lspconfig'
-local configs = require 'lspconfig.configs'
--- Check if the config is already defined (useful when reloading this file)
-if not configs.suricata_language_server then
-  configs.suricata_language_server = {
-    default_config = {
-      cmd = {'suricata-language-server'};
+local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), vim.fn.expand('--suricata-binary=$HOME/builds/suricata/bin/suricata'), '--debug-log'}
+
+vim.lsp.config('suricata_language_server',
+  {
+      cmd = suricata_ls_cmd;
       filetypes = {'suricata', 'hog'};
       root_dir = function(fname)
-        return lspconfig.util.find_git_ancestor(fname)
+        return vim.lsp.config.util.find_git_ancestor(fname)
       end;
       single_file_support = true;
       settings = {};
-    };
+      on_attach = on_attach,
   }
-end
-
-local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), vim.fn.expand('--suricata-binary=$HOME/builds/suricata/bin/suricata'), '--debug-log'}
-require'lspconfig'.suricata_language_server.setup{
-  cmd = suricata_ls_cmd,
-  on_attach = on_attach,
-}
+)
 
 local clangd_cmd = {'clangd', '--header-insertion=never', '--offset-encoding=utf-16'}
-require'lspconfig'.clangd.setup{
+vim.lsp.config('clangd', {
   cmd = clangd_cmd,
   on_attach = on_attach,
-}
+})
 
-require'lspconfig'.rust_analyzer.setup{
+vim.lsp.config('rust_analyzer', {
   on_attach = on_attach,
   settings = {
     ['rust-analyzer'] = {
@@ -136,9 +127,9 @@ require'lspconfig'.rust_analyzer.setup{
       },
     },
   },
-}
+})
 
-require('lspconfig').jsonls.setup {
+vim.lsp.config('jsonls', {
   debug = true,
   settings = {
     json = {
@@ -155,9 +146,9 @@ require('lspconfig').jsonls.setup {
       validate = { enable = true },
     },
   },
-}
+})
 
-require('lspconfig').yamlls.setup {
+vim.lsp.config('yamlls', {
   settings = {
     yaml = {
       schemaStore = {
@@ -170,6 +161,12 @@ require('lspconfig').yamlls.setup {
       schemas = require('schemastore').yaml.schemas(),
     },
   },
-}
+})
 
-require'lspconfig'.nil_ls.setup{}
+vim.lsp.config('nil_ls', {})
+
+
+local servers = { 'bashls', 'pyright', 'html', 'ts_ls', 'taplo', 'suricata_language_server', 'clangd', 'rust_analyzer', 'jsonls', 'yamlls', 'nil_ls' }
+for _, lsp in ipairs(servers) do
+  vim.lsp.enable(lsp)
+end
