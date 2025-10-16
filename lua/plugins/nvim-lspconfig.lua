@@ -100,9 +100,9 @@ vim.lsp.config('suricata_language_server',
   {
       cmd = suricata_ls_cmd;
       filetypes = {'suricata', 'hog'};
-      root_dir = function(fname)
-        return vim.lsp.config.util.find_git_ancestor(fname)
-      end;
+      -- root_dir = function(fname)
+      --  return vim.fs.root(fname, ".git")
+      -- end;
       single_file_support = true;
       settings = {};
       on_attach = on_attach,
