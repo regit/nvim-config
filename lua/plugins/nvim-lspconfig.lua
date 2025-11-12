@@ -94,7 +94,8 @@ https://github.com/typescript-language-server/typescript-language-server
 --   }
 -- end
 
-local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), vim.fn.expand('--suricata-binary=$HOME/builds/suricata/bin/suricata'), '--debug-log'}
+local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), '--container', '--debug-log'}
+-- local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), vim.fn.expand('--suricata-binary=$HOME/builds/suricata/bin/suricata'), '--debug-log'}
 
 vim.lsp.config('suricata_language_server',
   {
