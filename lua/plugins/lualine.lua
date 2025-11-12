@@ -11,5 +11,5 @@ require('lualine').setup {
     icons_enabled = true,
     extensions = {'nvim-tree'},
   };
-  sections = {lualine_a = {'nvim_treesitter#statusline'}};
+  sections = {lualine_a ={{'nvim_treesitter#statusline'}, { 'lsp_status'}}};
 }
