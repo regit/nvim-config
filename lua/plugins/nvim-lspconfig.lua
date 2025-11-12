@@ -97,7 +97,7 @@ https://github.com/typescript-language-server/typescript-language-server
 local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), '--container', '--debug-log'}
 -- local suricata_ls_cmd = {vim.fn.expand('$HOME/git/stamus/suricata-language-server/venv/bin/suricata-language-server'), vim.fn.expand('--suricata-binary=$HOME/builds/suricata/bin/suricata'), '--debug-log'}
 
-vim.lsp.config('suricata_language_server',
+vim.lsp.config('Suricata LS',
   {
       cmd = suricata_ls_cmd;
       filetypes = {'suricata', 'hog'};
@@ -167,7 +167,7 @@ vim.lsp.config('yamlls', {
 vim.lsp.config('nil_ls', {})
 
 
-local servers = { 'bashls', 'pyright', 'html', 'ts_ls', 'taplo', 'suricata_language_server', 'clangd', 'rust_analyzer', 'jsonls', 'yamlls', 'nil_ls' }
+local servers = { 'bashls', 'pyright', 'html', 'ts_ls', 'taplo', 'Suricata LS', 'clangd', 'rust_analyzer', 'jsonls', 'yamlls', 'nil_ls' }
 for _, lsp in ipairs(servers) do
   vim.lsp.enable(lsp)
 end
